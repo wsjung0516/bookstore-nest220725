@@ -5,21 +5,22 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BooksModule } from './books/books.module';
 import { Book } from './books/book-entity';
-
 @Module({
   imports: [
     TypeOrmModule.forRoot(
       {
         type: 'mysql',
-        host: 'localhost',
+        // host: 'host.docker.internal',
+        host: 'my-db',
         port: 3306,
         username: 'root',
-        password: 'bharti123',
-        database: 'bookstore-nest',
+        password: 'root_password',
+        database: 'mysql-db',
         entities: [Book],
+        // entities: ["dist/**/*.entity{.ts,.js}"],
         synchronize: true
     }),
-    BooksModule
+    BooksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

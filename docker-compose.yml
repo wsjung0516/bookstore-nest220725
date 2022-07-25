@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: my-db
+    build: ./mysql 
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+  server:
+    container_name: my-backend
+    build: ./server 
+    volumes:
+       - /app/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+       - mysql
+
+  client:
+    container_name: client-app
+    build: ./client
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '80:80'
+volumes:
+  data:
+

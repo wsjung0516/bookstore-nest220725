@@ -1,0 +1,14 @@
+###
+GET http://localhost:3000/books
+Content-Type: application/json
+
+###
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+        "title": "A Tale of Two Cities2",
+        "description": "A story of two2",
+        "author":  "John",
+        "isActive": true
+}
