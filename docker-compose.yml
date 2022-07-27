@@ -5,6 +5,7 @@ services:
     build: ./mysql 
     volumes:
       - data:/var/lib/mysql
+    image: wsjung0516/bookstore-mysql  
     ports:
       - 3306:3306
     environment:
@@ -12,6 +13,7 @@ services:
   server:
     container_name: my-backend
     build: ./server 
+    image: wsjung0516/bookstore-server
     volumes:
        - /app/node_modules
     ports:
@@ -22,6 +24,7 @@ services:
   client:
     container_name: client-app
     build: ./client
+    image: wsjung0516/bookstore-client
     volumes:
       - '.:/app'
       - '/app/node_modules'
