@@ -32,11 +32,11 @@ jobs:
             
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          echo working directory
+          echo ${{ GITHUB_WORKSPACE}}
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
           
             #Now we have got the access of EC2 and we will start the deploy .
-            # echo working directory
-            # echo ${{ GITHUB_WORKSPACE}}
             cd bookstore-nest &&
             git checkout master &&
             git fetch --all &&
