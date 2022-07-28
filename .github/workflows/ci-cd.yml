@@ -34,6 +34,8 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "GITHUB_PATH = $GITHUB_PATH"
+          ls -la $PWD
+          ls -la $GITHUB_WORKSPACE
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
           
             #Now we have got the access of EC2 and we will start the deploy .
