@@ -15,8 +15,8 @@ jobs:
     - name: Build the docker_compose
       run: docker-compose up -d --build
       
-    # - name: Build the application
-    #   run: docker-compose exec -T bookstore-nest npm run build
+    - name: Build the application
+      run: docker-compose exec -T bookstore-nest220725 npm run build
 
   Deploy:
     needs: build
