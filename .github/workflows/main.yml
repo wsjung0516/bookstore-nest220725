@@ -28,6 +28,7 @@ jobs:
       - name: Display time  
         run: |
           echo hello world
+          echo ${{ steps.format-time}}
           echo ${{ steps.format-time.outputs}}
           echo ${{ steps.current-time.outputs.time}}
 
