@@ -28,9 +28,9 @@ jobs:
       - name: Display time  
         run: |
           echo hello world
-          echo ${{ steps.format-time.outputs.time}}
-          echo ${{ steps.format-time.outputs.replace}}
-          
+          echo ${{ steps.format-time.outputs}}
+          echo ${{ steps.current-time.outputs.time}}
+
       - name: Deploy to EB 
         uses: einaregilsson/beanstalk-deploy@v20
         with: 
