@@ -11,8 +11,7 @@ import { Book } from './books/book-entity';
       {
         type: 'mysql',
         // host: 'host.docker.internal',  // used for communication between containers and
-        //host: 'my-db',   // used for docker-compose yml file
-        host: 'localhost',   // changed to test AWS ECS 220730
+        host: 'my-db',   // used for docker-compose yml file
         port: 3306,
         username: 'root',
         password: 'root_password',
