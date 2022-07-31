@@ -15,11 +15,6 @@ jobs:
       - name: Get Timestamp
         uses: gerred/actions/current-time@master
         id: current-time
-      - name: Display time  
-        run: |
-          echo hello world
-          echo ${{ steps.format-time.outputs.time}}
-          echo ${{ steps.format-time.outputs.replace}}
 
       - name: Run string replace
         uses: frabert/replace-string-action@master
@@ -29,6 +24,13 @@ jobs:
           string: "${{ steps.current-time.outputs.time}}"
           replace-with: '-'
           flags: 'g'
+
+      - name: Display time  
+        run: |
+          echo hello world
+          echo ${{ steps.format-time.outputs.time}}
+          echo ${{ steps.format-time.outputs.replace}}
+          
       - name: Deploy to EB 
         uses: einaregilsson/beanstalk-deploy@v20
         with: 
