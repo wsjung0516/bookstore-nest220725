@@ -15,8 +15,10 @@ jobs:
       - name: Get Timestamp
         uses: gerred/actions/current-time@master
         id: current-time
-        run: 
+      - name: Display time  
+        run: |
           echo hello world
+          echo ${{ steps.format-time.outputs.replace}}
 
       - name: Run string replace
         uses: frabert/replace-string-action@master
