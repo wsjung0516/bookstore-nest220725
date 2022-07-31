@@ -10,8 +10,9 @@ import { Book } from './books/book-entity';
     TypeOrmModule.forRoot(
       {
         type: 'mysql',
-        // host: 'host.docker.internal',
-        host: 'my-db',
+        // host: 'host.docker.internal',  // used for communication between containers and
+        //host: 'my-db',   // used for docker-compose yml file
+        host: 'localhost',   // changed to test AWS ECS 220730
         port: 3306,
         username: 'root',
         password: 'root_password',

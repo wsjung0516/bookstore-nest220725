@@ -4,7 +4,7 @@ FROM mysql:5.7
 # 실전에서는 비밀번호 등을 이곳에 입력하지 말 것!
 # 서버의 환경변수 등을 활용하세요.
 # ENV MYSQL_USER root
-ENV MYSQL_USERNAME jung
+ENV MYSQL_USERNAME root
 ENV MYSQL_PASSWORD root_password
 ENV MYSQL_ROOT_PASSWORD root_password
 ENV MYSQL_DATABASE mysql-db
