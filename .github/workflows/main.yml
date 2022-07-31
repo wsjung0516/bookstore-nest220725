@@ -29,8 +29,8 @@ jobs:
         with: 
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }} 
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
-          application_name: bookstore-app
-          environment_name: Bookstoreapp-env
+          application_name: bookstore-nest-app
+          environment_name: Bookstorenestapp-env
           version_label: "the-simple-engineer-deployment-$ {{ steps.format-time.outputs.replace}}"
           region: us-east-1
           deployment_package: deploy.zip
