@@ -9,9 +9,14 @@ jobs:
     steps:
       - name: Checkout Latest Repo
         uses: actions/checkout@master
-      - name: Genera
-        run: zip -r deploy.zip * -z "**node_modules**"
+      # - name: Genera
+      #   run: zip -r deploy.zip * -z "**node_modules**"
+      - name: Building application
+        run: npm run build
 
+      - name: Generate deployment package
+        run: zip -r deploy.zip * -x ./node_modules
+      ###  
       - name: Get Timestamp
         uses: gerred/actions/current-time@master
         id: current-time
