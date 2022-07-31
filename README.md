@@ -1,4 +1,4 @@
-# bookstore-nest
+# bookstore-nest-project
 ##  Docker, CRUD APP with NestJS, Angular and MySQL
 ---------
 ### Database
