@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from './book';
+import { WINDOW } from 'src/app/window-token';
+import { Inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
