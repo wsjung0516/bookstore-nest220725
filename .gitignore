@@ -2,8 +2,9 @@
 # compiled output
 node_modules/
 client/node_modules/*
-server/dist/*
 server/node_modules/*
+server/dist/*
+client/dist/*
 
 # Logs
 logs
