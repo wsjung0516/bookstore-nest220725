@@ -8,7 +8,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditBookComponent } from './edit-book/edit-book.component';
-// import { WINDOW_PROVIDERS } from './window-token';
+import { WINDOW_PROVIDERS } from './window-token';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     HttpClientModule
   ],
   providers: [
-    // WINDOW_PROVIDERS
+    WINDOW_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })
