@@ -9,13 +9,13 @@ import { Inject } from '@angular/core';
   providedIn: 'root'
 })
 export class BookService {
-  origin = this.window.location.origin;
+  // origin = this.window.location.origin;
   // private baseUrl = `${origin}/books`;
   private baseUrl = 'http://localhost:3000/books';
 
   constructor(
     private http: HttpClient,
-    @Inject(WINDOW) private window: Window
+    // @Inject(WINDOW) private window: Window
     ) { }
 
   getBook(bookID: number): Observable<any> {
