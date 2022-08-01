@@ -28,6 +28,9 @@ services:
       - '/app/node_modules'
     ports:
       - '80:80'
+    depends_on:
+       - server
+
 volumes:
   data:
 
