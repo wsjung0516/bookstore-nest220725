@@ -9,6 +9,7 @@ import { BookService } from '../book.service';
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
+  submitted = false;
   bookID: number;
   book: Book;
 
