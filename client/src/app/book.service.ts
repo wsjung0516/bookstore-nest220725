@@ -7,10 +7,14 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class BookService {
+  origin = this.window.location.origin;
+  private baseUrl = `${origin}/books`;
+  // private baseUrl = 'http://localhost:3000/books';
 
-  private baseUrl = 'http://localhost:3000/books';
-
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    @Inject(WINDOW) private window: Window
+    ) { }
 
   getBook(bookID: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${bookID}`);

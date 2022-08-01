@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout Latest Repo
         uses: actions/checkout@master
-      - name: Genera
+      - name: Generating zip file
         run: zip -r deploy.zip * -z "**node_modules**"
 
       - name: Get Timestamp
@@ -25,13 +25,6 @@ jobs:
           replace-with: '-'
           flags: 'g'
 
-      - name: Display time  
-        run: |
-          echo hello world
-          echo ${{ steps.format-time}}
-          echo ${{ steps.format-time.outputs.replaced}}
-          echo ${{ steps.current-time.outputs.time}}
-
       - name: Deploy to EB 
         uses: einaregilsson/beanstalk-deploy@v20
         with: 
@@ -39,7 +32,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
           application_name: bookstore-docker-app
           environment_name: Bookstoredockerapp-env
-          version_label: "the-simple-engineer-deployment-${{ steps.current-time.outputs.time}}"
-          # version_label: "the-simple-engineer-deployment-${{ steps.format-time.outputs.replace}}"
+          version_label: "the-simple-engineer-deployment-${{ steps.format-time.outputs.replaced}}"
           region: us-east-1
           deployment_package: deploy.zip
