@@ -8,7 +8,6 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditBookComponent } from './edit-book/edit-book.component';
-// import { WINDOW_PROVIDERS } from './window-token';
 
 @NgModule({
   declarations: [
@@ -24,9 +23,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [
-    // WINDOW_PROVIDERS
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
