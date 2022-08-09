@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    environment {
+        AWS_DEFAULT_REGION='us-east-1'
+        THE_BUTLER_SAYS_SO=credentials('wsjung0516-aws-creds')
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                sh ''' 
+                 aws --version
+                 aws ec2 describe-instances
+                '''
+            }
+        }
+    }
+}
