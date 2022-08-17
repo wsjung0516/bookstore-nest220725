@@ -32,8 +32,10 @@ pipeline {
       stage('Building image') {
         steps{
           script {
-            dockerImage1 = docker.build "${IMAGE_REPO_NAME1}:${IMAGE_TAG}"
-            dockerImage2 = docker.build "${IMAGE_REPO_NAME2}:${IMAGE_TAG}"
+            dockerImage1 = docker.build ("${IMAGE_REPO_NAME1}:${IMAGE_TAG}","./client")
+            dockerImage2 = docker.build ("${IMAGE_REPO_NAME2}:${IMAGE_TAG}","./mysql")
+            // dockerImage1 = docker.build "${IMAGE_REPO_NAME1}:${IMAGE_TAG}"
+            // dockerImage2 = docker.build "${IMAGE_REPO_NAME2}:${IMAGE_TAG}"
           }
         }
       }
