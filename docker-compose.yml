@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   mysql:
-    container_name: mysql
+    container_name: mysql-con
     build: ./mysql 
     volumes:
       - data:/var/lib/mysql
@@ -11,7 +11,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root_password
   server:
-    container_name: server
+    container_name: server-con
     build: ./server 
     volumes:
        - /app/node_modules
@@ -21,7 +21,7 @@ services:
        - mysql
 
   client:
-    container_name: client
+    container_name: client-con
     build: ./client
     volumes:
       - '.:/app'
