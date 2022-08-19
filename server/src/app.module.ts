@@ -11,7 +11,8 @@ import { Book } from './books/book-entity';
       {
         type: 'mysql',
         // host: 'host.docker.internal',  // used for communication between containers and
-        host: 'mysql-con',   // used for docker-compose yml file
+        // host: 'mysql-con',   // used for docker-compose yml file
+        host: 'localhost',   // used for ECS fargate
         port: 3306,
         username: 'root',
         password: 'root_password',
