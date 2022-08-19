@@ -1,12 +1,9 @@
 ###
-GET http://3.80.112.11/books
-Content-Type: application/json
-###
-GET http://23.20.37.236/books
+GET http://ecs-lb-1894397438.us-east-1.elb.amazonaws.com/books
 Content-Type: application/json
 
 ###
-POST http://3.80.112.11/books
+POST http://ecs-lb-1894397438.us-east-1.elb.amazonaws.com/books
 Content-Type: application/json
 
 {

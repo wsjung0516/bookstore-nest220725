@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from './book';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  private baseUrl = 'http://localhost:3000/books';
+  // private baseUrl = 'http://localhost:3000/books';
+  private baseUrl = environment.production ? 'ecs-lb-1894397438.us-east-1.elb.amazonaws.com/books': 'http://localhost/books';
 
   constructor(
     private http: HttpClient,
