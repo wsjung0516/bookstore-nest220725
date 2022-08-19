@@ -1,38 +1,40 @@
-name: Elastic Beanstalk Deploy
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+name: Node Project `my-app` CI on ECR
+
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Latest Repo
-        uses: actions/checkout@master
-      - name: Generating zip file
-        run: zip -r deploy.zip * -z "**node_modules**"
+    - name: Checkout
+      uses: actions/checkout@v2
 
-      - name: Get Timestamp
-        uses: gerred/actions/current-time@master
-        id: current-time
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
 
-      - name: Run string replace
-        uses: frabert/replace-string-action@master
-        id: format-time
-        with:
-          pattern: '[:\.]+'
-          string: "${{ steps.current-time.outputs.time}}"
-          replace-with: '-'
-          flags: 'g'
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Deploy to EB 
-        uses: einaregilsson/beanstalk-deploy@v20
-        with: 
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }} 
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
-          application_name: bookstore-docker-app-2
-          environment_name: Bookstoredockerapp2-env
-          version_label: "the-simple-engineer-deployment-2022-08-01T18-24-52-401Z"
-          # version_label: "the-simple-engineer-deployment-${{ steps.format-time.outputs.replaced}}"
-          region: us-east-1
-          # deployment_package: deploy.zip
+    - name: Build, tag, and push the image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+        IMAGE_TAG: latest
+      run: |
+        # Build a docker container and push it to ECR 
+        # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        echo "Pushing image to ECR..."
+        # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
