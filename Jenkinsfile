@@ -36,7 +36,7 @@ pipeline {
           script {
             dockerImage1 = docker.build ("${IMAGE_REPO_NAME1}:${IMAGE_TAG}","./server")
             dockerImage2 = docker.build ("${IMAGE_REPO_NAME2}:${IMAGE_TAG}","./mysql")
-            dockerImage3 = docker.build ("${IMAGE_REPO_NAME3}:${IMAGE_TAG}","-t ./client -f Dockerfile.prod ")
+            dockerImage3 = docker.build ("${IMAGE_REPO_NAME3}:${IMAGE_TAG}","-f './client/Dockerfile.prod' './client'")
             // dockerImage1 = docker.build "${IMAGE_REPO_NAME1}:${IMAGE_TAG}"
             // dockerImage2 = docker.build "${IMAGE_REPO_NAME2}:${IMAGE_TAG}"
           }
