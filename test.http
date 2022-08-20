@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/books
+GET http://localhost/books
 Content-Type: application/json
 
 ###

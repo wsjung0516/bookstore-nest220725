@@ -16,20 +16,21 @@ services:
     volumes:
        - /app/node_modules
     ports:
-      - 3000:3000
+      - 80:80
+      # - 3000:3000
     depends_on:
        - mysql
 
-  client:
-    container_name: client-con
-    build: ./client
-    volumes:
-      - '.:/app'
-      - '/app/node_modules'
-    ports:
-      - '80:80'
-    depends_on:
-       - server
+  # client:
+  #   container_name: client-con
+  #   build: ./client
+  #   volumes:
+  #     - '.:/app'
+  #     - '/app/node_modules'
+  #   ports:
+  #     - '80:80'
+  #   depends_on:
+  #      - server
 
 volumes:
   data:
