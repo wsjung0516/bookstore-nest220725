@@ -1,9 +1,9 @@
 ###
-GET http://ecs-lb-1894397438.us-east-1.elb.amazonaws.com/books
+GET http://localhost:3000/books
 Content-Type: application/json
 
 ###
-POST http://ecs-lb-1894397438.us-east-1.elb.amazonaws.com/books
+POST http://localhost/books
 Content-Type: application/json
 
 {
