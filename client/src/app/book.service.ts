@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BookService {
   // private baseUrl = 'http://localhost/books';
   // private baseUrl = 'http://localhost:3000/books';
-  private baseUrl = environment.production ? 'http://ecs-lb-1796771101.us-east-1.elb.amazonaws.com/books': 'http://localhost/books';
+  private baseUrl = environment.production === true ? 'http://ecs-lb-1796771101.us-east-1.elb.amazonaws.com/books': 'http://localhost/books';
   
   constructor(
     private http: HttpClient,
