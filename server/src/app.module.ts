@@ -6,7 +6,6 @@ import { AppService } from './app.service';
 import { BooksModule } from './books/books.module';
 import { Book } from './books/book-entity';
 import { ConfigModule } from '@nestjs/config';
-import { HOST_NAME } from './main';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -14,9 +13,8 @@ import { HOST_NAME } from './main';
       {
         type: 'mysql',
         // host: 'host.docker.internal',  // used for communication between containers and
-        // host: 'mysql-con',                // used for docker-compose yml file
+        host: 'mysql-con',                // used for docker-compose yml file
         // host: 'localhost',             // used for ECS fargate
-        host: HOST_NAME,
         port: 3306,
         username: 'root',
         password: 'root_password',
